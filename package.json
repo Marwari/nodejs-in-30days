@@ -4,12 +4,19 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marwari/nodejs-in-30days.git"
+  },
+  "author": "marwari",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Marwari/nodejs-in-30days/issues"
+  },
+  "homepage": "https://github.com/Marwari/nodejs-in-30days#readme",
   "dependencies": {
-    "express": "^4.16.3"
+
   }
 }
