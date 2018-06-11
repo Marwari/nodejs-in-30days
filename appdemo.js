@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var con = mysql.createConnection({
 		host:"localhost",
 		user:"root",
-		password:"root",
+		password:"1234",
 		database: "demo"
 	});
 app.get('/testtable', testtable.list);
@@ -47,12 +47,12 @@ con.connect(function(err){
 		if(err) throw err;
 		console.log("Connected!");
 		
-var sql = "insert into login(username,password) values('"+username+"','"+password+"')";
-			  con.query(sql, function (err, result) {
+var sql = "insert into login values('"+username+"','"+password+"')";
+			con.query(sql, function (err, result) {
 				if (err) throw err;
-		if(result.length){
+			if(result.length){
   			res.redirect('/testtable');
-res.end();
+			res.end();
 			}
 		else
 		{

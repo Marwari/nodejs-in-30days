@@ -3,7 +3,7 @@ export.list = function(req, res){
 	var con = mysql.createConnnection({
 		host: 'localhost',
 		user: 'root',
-		password: 'root',
+		password: '1234',
 		database: 'demo'
 	});
 	con.connect(function(err){

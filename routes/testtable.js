@@ -5,7 +5,7 @@ exports.list = function(req, res){
  var con = mysql.createConnection({
 		host:"localhost",
 		user:"root",
-		password:"",
+		password:"1234",
 		database: "demo"
 	});
 	con.connect(function(err){
