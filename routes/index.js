@@ -7,11 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 var mysql = require('mysql');
-export.list = function(req, res){
+
+exports.list = function(req, res){
 	var con = mysql.createConnnection({
 		host: 'localhost',
 		user: 'root',
-		password: 'root',
+		password: '1234',
 		database: 'demo'
 	});
 	con.connect(function(err){

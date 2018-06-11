@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/Marwari/nodejs-in-30days#readme",
   "dependencies": {
-
+    "cookie-parser": "^1.4.3",
+    "express": "*",
+    "morgan": "^1.9.0",
+    "mysql": "*"
   }
 }
