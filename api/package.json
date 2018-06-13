@@ -1,0 +1,22 @@
+{
+  "name": "aaa",
+  "version": "1.1.1",
+  "description": "ssss",
+  "main": "ssss",
+  "scripts": {
+    "test": "ssss",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssss"
+  },
+  "keywords": [
+    "ssss"
+  ],
+  "author": "ssss",
+  "license": "(ISC)",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

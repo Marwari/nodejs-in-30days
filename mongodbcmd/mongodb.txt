@@ -1,0 +1,15 @@
+db.dropDatabase()  drop  selected database  other  drop  the  desfault  database  test
+-----------
+show collections
+
+ to show  created  collctions
+------------------------------
+MongoDB's 
+db.collection.drop() is used to drop a collection from the database.
+
+---------------
+db.mycol.insert({ "_id":ObjectId("7df78ad8902c"),"title":"MongoDB Overview", "description":"MongoDB is no sql database","by":"tutorials point","url":"abc","tags":["mongodb","database", "NoSQL"],likes:100});
+----------
+ok------------
+db.mycol.insert({"title":"MongoDB Overview", "description":"MongoDB is no sql database","by":"abc","url":"abc","tags":["mongodb","database", "NoSQL"],likes:100});
+test.find( { "_id" : ObjectId("5879b0f65a56a454"), "a" : 1 })
