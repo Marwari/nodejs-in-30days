@@ -9,4 +9,5 @@ router.get('/', function(req, res, next) {
 (function(){
 	alert('Hello');
 });
+
 module.exports = router;
