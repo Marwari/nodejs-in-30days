@@ -1,0 +1,10 @@
+extends layout
+
+block scripts
+	script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+	script(src="index.js")
+block content
+	h1= title
+	p Welcome to #{title}
+	br
+	h3 hello #{sayHello}
