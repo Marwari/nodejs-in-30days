@@ -32,3 +32,22 @@ This is a basic nodejs training program which includes various topics in day-by-
 
 ## Day9
 * Understanding MongoDB
+
+## Day10
+* MongoDB commands ```create, read, update, delete```
+
+## Day11
+* ```lookup``` in MongoDB
+
+## Day12
+* Understanding ```jade``` view engine
+
+## Day13
+* Fetching data from ```mysql```, more with ```jade```
+
+##Day14
+* Assignment : Fetching countrywise data from ```mongodb```
+
+##Day15
+* Assignment : Updating students data, Use of ```angularJS```
+
