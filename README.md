@@ -46,7 +46,7 @@ This is a basic nodejs training program which includes various topics in day-by-
 * Fetching data from ```mysql```, more with ```jade```
 
 ## Day14
-* Assignment : Fetching countrywise data from ```mongodb```
+* Assignment : Fetching countryname using ```AJAX``` (```typeahead```)
 
 ## Day15
 * Assignment : Updating students data, Use of ```angularJS```
