@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "jade": "^1.11.0",
+    "module": "^1.2.5",
+    "moment": "^2.22.1",
+    "mysql": "^2.15.0",
+    "pug": "^2.0.3",
+    "routes": "^2.1.0"
+  }
+}

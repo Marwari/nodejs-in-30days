@@ -1,0 +1,59 @@
+<% include header.ejs %>
+<style>
+section#home {
+    display: none;
+}
+</style>
+<!-- Start Login Area -->
+<section class="features-area pt-100" id="login">
+	<div class="container">
+		<div class="feature-section">
+			<div class="">
+			<% if(data.length){ %>
+				<form class="form-group" method="post" autocomplete="off" action="/update">
+					<div class="container">
+						<h1> Update User </h1>
+						<hr>
+						<div class="form-group">
+							<label for="username"><b>UserName</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter UserName" class="form-control" value='<%=data[0].userName%>' readonly required>
+						</div>
+						<div class="form-group">
+							<label for="email"><b>Email</b></label>
+							<input type="email" id="usrPass" autocomplete="off" placeholder="Enter Password" value='<%=data[0].email%>' class="form-control" readonly required>
+							<input type="hidden" id="usrPass" autocomplete="off" placeholder="Enter Password" value='<%=data[0].id%>' class="form-control" name='id' required>
+						</div>
+						<div class="form-group">
+							<label for="fName"><b>First Name</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter First Name" class="form-control" value='<%=data[0].firstName%>' name="firstName" required>
+						</div>
+						<div class="form-group">
+							<label for="lName"><b>Last Name</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter Last Name" class="form-control" value='<%=data[0].lastName%>' name="lastName" required>
+						</div>
+						<div class="form-group">
+							<label for="contact"><b>Contact</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter Contact" class="form-control" value='<%=data[0].contact%>' name="contact" required>
+						</div>
+						<div class="form-group">
+							<label for="address"><b>Address</b></label>
+							<textarea class="form-control" style="resize:none;" name="address"><%=data[0].address%></textarea>
+						</div>
+						<div class="clearfix">
+							<button type="submit" id="myBtn" class="btn btn-default">Update User </button>
+						</div>
+					</div>
+				</form>
+				<% 	} else{ %>
+				<div class="form-group">
+					<p>Invalid User</p>
+				</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Login Area -->
+
+<!-- End Contact Area -->
+<% include footer.ejs %>

@@ -1,0 +1,82 @@
+<% include header.ejs %>
+<style>
+section#home {
+    display: none;
+}
+</style>
+<!-- Start Login Area -->
+<section class="features-area pt-100" id="login">
+	<div class="container">
+		<div class="feature-section">
+			<div class="">
+				<div class="container">
+					<h1> All Menu </h1>
+					<hr>
+					<form class="form-group" method="post" autocomplete="off" action="/addFood">
+						<div class="form-group">
+							<label for="name"><b>Food Name</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter Food Name" name="foodName" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="type"><b>Food Type</b></label>
+							<select name="foodType" class="form-control" required>
+								<option value="Breskfast Menu">Breskfast Menu</option>
+								<option value="Lunch Menu">Lunch Menu</option>
+								<option value="Supper Menu">Supper Menu</option>
+								<option value="Dinner Menu">Dinner Menu</option>
+								<option value="Dessert Menu">Dessert Menu</option>
+								<option value="Drinks Menu">Drinks Menu</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="fName"><b>Full Price</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter Full Price" class="form-control" name="priceFull" required>
+						</div>
+						<div class="form-group">
+							<label for="lName"><b>Half Price</b></label>
+							<input type="text" autocomplete="off" placeholder="Enter Half Price" value="0" class="form-control" name="priceHalf">
+						</div>
+						<div class="clearfix">
+							<button type="reset" id="myBtn" class="btn btn-warning">Cancel </button>
+							<button type="submit" id="myBtn" class="btn btn-default">Save Menu </button>
+						</div>
+					</form>
+					<table border="1" cellpadding="7" cellspacing="7">
+						<tr>
+							<th width="50px">No</th>
+							<th>Food Name</th>
+							<th>Food Type</th>
+							<th>Full Price</th>
+							<th>Half Price</th>
+							<th width="120px">Action</th>
+						</tr>
+						<% if(data.length){ 
+							for(var i = 0;i < data.length;i++) { %>
+						<tr>
+							<td><%=(i+1)%></td>
+							<td><%=data[i].foodName%> </td>
+							<td><%=data[i].foodType%></td>
+							<td><%=data[i].priceFull%></td>
+							<td><%=data[i].priceHalf%></td>
+							<td>
+								<a class="a-inside edit" href="../editfood/<%=data[i].id%>">Edit</a>
+								<a class="a-inside delete" href="../deletefood/<%=data[i].id%>">Delete</a>
+							</td>
+						</tr>
+						<% }
+							}else{ %>
+						<tr>
+							<td colspan="6">No Menu Available</td>
+						</tr>
+						<% } %>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Login Area -->
+
+<!-- End Contact Area -->
+<% include footer.ejs %>

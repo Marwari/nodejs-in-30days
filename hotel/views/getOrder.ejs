@@ -1,0 +1,57 @@
+<% include header.ejs %>
+<style>
+section#home {
+    display: none;
+}
+</style>
+<!-- Start Login Area -->
+<section class="features-area pt-100" id="login">
+	<div class="container">
+		<div class="feature-section">
+			<div class="">
+				<div class="container">
+					<h1> All Orders  </h1>
+					<hr>
+					<table id="tblCustomers" border='1' cellpadding="7" cellspacing="7">
+						<tr>
+							<th>Ordered From</th>
+							<th>Food Name</th>
+							<th>Qty</th>
+							<th>Type</th>
+							<th>Total Cost</th>
+						</tr>
+						<% if(data.length){  %>
+						<% for(var K = 0;K < data.length;K++) { var obj = JSON.parse(data[K].oList); %>
+						<tr>
+							<td>
+								<%=data[K].firstName%> <%=data[K].lastName%>
+							</td>
+							<td>
+								<%=obj.foodName%>
+							</td>
+							<td>
+								<%=obj.qty%>
+							</td>
+							<td>
+								<%=data[K].oType%> 
+							</td>
+							<td>
+								<%=obj.qty * obj.price%>
+							</td>
+						</tr>
+						
+							<% } }else{ %>
+						<tr>
+							<td colspan="6">No ORder Found</td>
+						</tr>
+						<% } %>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Login Area -->
+
+<!-- End Contact Area -->
+<% include footer.ejs %>

@@ -1,0 +1,178 @@
+<% include header.ejs %>
+<style>
+section#home {
+    display: none;
+}
+</style>
+<!-- Start Login Area -->
+<section class="features-area pt-100" id="login">
+	<div class="container">
+		<div class="feature-section">
+			<div class="">
+				<div class="container">
+					<h1> <% if(data.length){  %>Order Create <% }else if(dat_a.length){  %> Order Review  <% } %>  </h1>
+					<hr>
+					<table id="tblCustomers" border='1' cellpadding="7" cellspacing="7">
+						<tr>
+							<th>Select Item</th>
+							<th>Qty</th>
+							<th>Type</th>
+							<th>Total Cost</th>
+						</tr>
+						<% if(data.length){  %>
+							<form action="http://localhost:3000/bookOrder" method="POST">
+						<tr>
+							<td>
+								<select name="foodItem" id="foodItem">
+									<option value=''>Select Menu</option>
+									<% for(var K = 0;K < data.length;K++) { %>
+										<option value="<%=data[K].id%>"><%=data[K].foodName%></option>
+									<% } %>
+								</select>
+							</td>
+							<td>
+								<select name='qty' onchange='getQuote()' id='qty'>
+									<option value=''>Select Qty</option>
+									<% for(var M = 1;M <= 15;M++) { %>
+										<option value="<%=M%>"><%=M%></option>
+									<% } %>
+
+								</select>
+							</td>
+							<td>
+								<select id='priceshow' onchange='getQuote()' name='price'>
+									<option value=''>Price</option>
+								</select>
+							</td>
+							<td>
+								<span id="showPrice"></span>
+							</td>
+							<td><input type="submit" value="Book"></td>
+						</tr>
+						</form>
+						
+							<% }else if(dat_a.length){ var obj = JSON.parse(dat_a);%>
+						<tr>
+							<td><%=obj.foodName%></td>
+							<td><%=obj.qty%></td>
+							<td>Home Delivery</td>
+							<td><%=obj.price * obj.qty%></td>
+						</tr>
+						<% } %>
+					</table>
+					<span id="datashow"></span>
+					<% if(dat_a.length){ var obj = JSON.parse(dat_a); var objs = JSON.parse(dat_a);%>
+					<div style="margin-top:10px;">
+						<div class="heading">
+							<h3>Confirm Purchase</h3>
+						</div>
+						<div class="payset">
+							<form action="http://localhost:3000/paid" method="POST">
+								<div class="owner col-lg-12">
+									<div class="ssn col-sm-6">
+									<label for="owner">Owner</label>
+									<input type="text" class="form-control" name="owner">
+									</div>
+									<div class="col-sm-6">
+									<label for="cvv">CVV</label>
+									<input type="text" class="form-control" name="cvv">
+									</div>
+								</div>
+								<div class="form-group col-sm-6 col-lg-6" id="card-number-field">
+									<label for="cardNumber">Card Number</label>
+									<input type="text" name='cardNumber' class="form-control" id="cardNumber">
+									<input type="hidden" name='foodItem' class="form-control" value="<%=objs.foodItem%>">
+									<input type="hidden" name='price' class="form-control" value="<%=objs.price%>">
+									<input type="hidden" name='qty' class="form-control" value="<%=objs.qty%>">
+									<input type="hidden" name='foodName' class="form-control" value="<%=objs.foodName%>">
+								</div>
+								<div class="form-group col-lg-12" id="expiration-date">
+									<label>Expiration Date</label>
+									<div class="col-sm-6">
+									<select name="cardExp" class="form-control">
+										<option value="01">January</option>
+										<option value="02">February </option>
+										<option value="03">March</option>
+										<option value="04">April</option>
+										<option value="05">May</option>
+										<option value="06">June</option>
+										<option value="07">July</option>
+										<option value="08">August</option>
+										<option value="09">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>
+									</select>
+									</div>
+									<div class="col-sm-6">
+									<select class="form-control">
+										<option value="18"> 2018</option>
+										<option value="19"> 2019</option>
+										<option value="20"> 2020</option>
+										<option value="21"> 2021</option>
+									</select>
+									</div>
+								</div>
+								<div class="form-group" id="credit_cards">
+									<img src="http://localhost:3000/cardcss/images/visa.jpg" id="visa">
+									<img src="http://localhost:3000/cardcss/images/mastercard.jpg" id="mastercard">
+									<img src="http://localhost:3000/cardcss/images/amex.jpg" id="amex">
+								</div>
+								<div class="form-group" id="pay-now">
+									<button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<% } %>					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Login Area -->
+
+<!-- End Contact Area -->
+<% include footer.ejs %>
+<script>
+function getQuote(){
+	var QTY = $('#qty').val();
+	var priceshow = $('#priceshow').val();
+	
+	if(QTY !='' && priceshow!=''){
+		$('#showPrice').html(QTY * priceshow);
+	}
+}
+function book(){
+	var qtyList = $('#qty').val();
+	var priceList = $('#priceshow').val();
+	var itemList = $('#foodItem').val();
+	var finalList = $('#showPrice').text();
+}
+
+$(function(){
+	$('#foodItem').change(function(){
+		$('#priceshow').html('');
+		$('#showPrice').html('');
+
+		//alert(this.value);
+		$.ajax({
+			type: 'POST',
+			url: "http://localhost:3000/getPrice",
+			data: {id:this.value},
+			success: function(resultData) {
+				if(resultData.length){
+					$("#priceshow").append("<option value=''> Price </option>");
+					$("#priceshow").append('<option value=' + resultData[0].priceFull + '>' + resultData[0].priceFull + ' (Full Plate) </option>');
+					if(resultData[0].priceHalf > 0){
+						$("#priceshow").append('<option value=' + resultData[0].priceHalf + '>' + resultData[0].priceHalf + ' (Half Plate) </option>');
+					}
+				}else{
+					$("#priceshow").append("<option value=''> Price </option>");
+				}
+			}
+		});
+	})
+
+})
+</script>
