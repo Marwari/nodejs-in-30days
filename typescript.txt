@@ -1,0 +1,24 @@
+javascript equivalent
+
+typescript supports other js libraries
+it can be consumed from any js code
+ts generated js can reuse all existing js framworks, toola etc
+
+benefits of ts
+-compilation : it will compile the code and generate compilations error, if finds anny in syntax.
+-  
+
+Data Type:
+1. user defined
+2. system defiened -  number, string, boolean, void, null
+3. any 
+
+declaring variables:
+1. var identofier: typenoation= value;
+var message: string = "Hello world"
+
+2. var identifier:type;
+
+3. var identifier:value;
+
+4. var identifier

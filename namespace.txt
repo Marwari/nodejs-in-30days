@@ -1,0 +1,9 @@
+namespace is way to locally group related code. this is build into typescript unlike in javascript where variables go into a global scope 
+and if multiple js files are used within same project there will be possibility of overwriting or misconstruinng the same varible, which 
+will lead to the "global namespace pollution problem" in js
+
+defining namespace
+ namespace SomeNameSpaceName{
+export interface ISomeInterFaceName{}
+export class SomeClassName{}
+}
